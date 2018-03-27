@@ -1,0 +1,31 @@
+#
+# the plugin searches for dbdesigner.yml configs in all config/ dirs.
+# all defined dirs are relative to the current base dir.
+# that means for /path/to/myProject/config/dbdesigner.yml
+# 'doc/dbdesigner' will point to '/path/to/myProject/doc/dbdesigner'.
+# for /path/to/myProject/plugins/myPlugin/config/dbdesigner.yml
+# 'doc/dbdesigner' will point to '/path/to/myProject/plugins/myPlugin/doc/dbdesigner'.
+# the plugin processes ALL .xml files in the defined save dirs
+#  
+#### sample 1 - define a simple dbdesigner save dir (place in config/dbdesigner.yml)
+#doc/dbdesigner:                       # search for dbdesigner files in this subdir
+#                                      # convert them to alternative schema .yml files
+#                                      # eg.: doc/dbdesigner/my_schema.xml -> config/my_schema.yml
+#
+#
+#### sample 2 - define a custom schema name for one file (place in config/dbdesigner.yml)
+#doc/dbdesigner:                       # search for dbdesigner files in this subdir (project or plugin)
+#  my_schema:                          # special options for dbdesigner file my_schema.xml
+#    filename:          schema         # save my_schema.xml as schema.yml
+#                                      # doc/dbdesigner/my_schema.xml -> config/schema.yml
+#                                      # all others will keep their names
+#
+#
+#### sample 3 - extra options to ease the work with schemas (place in config/dbdesigner.yml)
+#data/dbdesigner4:                     # search for dbdesigner files in this subdir (project or plugin)
+#  all:                                # default options for all .xml files in this dir
+#    class_prefix:     my              # prepend to all class names 
+#    table_prefix:     my_             # prepend to all table names
+#  myDbDesignerFile:                   # set options for file (merged with default options)
+#    filename:         schema          # use another filename for the generated yaml schema
+#

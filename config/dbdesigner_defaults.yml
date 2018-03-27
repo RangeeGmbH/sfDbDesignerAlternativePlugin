@@ -1,0 +1,11 @@
+all:                      # all dirs
+  all:                    # all files
+    save_dir:             %BASE_DIR%/config
+           
+plugins:
+  all:                    # all plugins
+    all:                  # all dirs
+      all:                # all files
+        save_dir:         %BASE_DIR%/config
+        package:          plugins.%PLUGIN_NAME%.lib.model
+        
